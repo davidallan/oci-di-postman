@@ -3,7 +3,7 @@
 This contains one Postman Environment for OCI and two collections with example of OCI Data Integration. 
 Download the repository's Postman collections and environment.
 Import the environment into Postman using the ‘Import’ button at the top, and activate it by selecting it from the top right drop-down.
-Open and Edit the newly imported environment, and set the OCI REST variables tenancyId, authUserId, keyFingerprint and private Key.
+Open and Edit the newly imported environment, and set the OCI REST variables tenancy_ocid, user_ocid, fingerprint and private_key.
 Now import the two collections into Postman.
 
 
