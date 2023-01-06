@@ -382,7 +382,73 @@
           ]
         }
       ]
-    }
+    },
+		{
+			"name": "Workspace",
+			"item": [
+				{
+					"name": "Stop Workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/actions/stop?quiesceTimeout=1800000&isForceOperation=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{WORKSPACE_OCID}}",
+								"actions",
+								"stop"
+							],
+							"query": [
+								{
+									"key": "quiesceTimeout",
+									"value": "1800000"
+								},
+								{
+									"key": "isForceOperation",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application-json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/actions/start",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{WORKSPACE_OCID}}",
+								"actions",
+								"start"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+
   ],
   "event": [
     {
