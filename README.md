@@ -18,4 +18,7 @@ You can then run the collection and all of these REST tasks will be created in t
 
 <h2>Data Integration APIs</h2>
 Edit the Data Integration APIs collection, go to the variables and update the workspace OCID, project key (to create the examples in), application keys and also the region if different. There are others there for copy application and sync application along with some of the other APIs.
-.
+
+<h2>Data Integration REST Utilities</h2>
+Edit the Data Integration REST Utilities collection, go to the variables and update the workspace OCID, project key (to create the examples in)  and also the region if different. You can then run the collection and all of these REST tasks will be created in the project. These REST tasks are dependent on the sftp blog and zipper blog.
+
