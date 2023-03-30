@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "98c8f4ac-d296-4bdb-960d-7e57cc16b530",
 		"name": "Data Integration REST Tasks",
-		"description": "Oracle Cloud Infrastructure Artificial Intelligence Services solutions can help Enterprise customers integrate AI into their products immediately using our proven,\n    pre-trained and custom models or containers, without a need to set up an house team of AI and ML experts.\n    This allows enterprises to focus on business drivers and development work rather than AI and ML operations, which shortens the time to market.",
+		"description": "Oracle Cloud Infrastructure Data Integration service helps users easily extract, transform, and load (ETL) data for data science and analytics. \nDesign code-free data flows into data lakes and data marts. Part of Oracle’s comprehensive portfolio of integration solutions.\nThis collection is a number of pre built tasks for interacting with many OCI services.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
