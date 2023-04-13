@@ -809,6 +809,123 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "NoSQL",
+					"item": [
+						{
+							"name": "Get Row from NoSQL",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelType\": \"REST_TASK\",\n  \"name\": \"Get Row from NoSQL\",\n  \"description\": \"Get a row from a NoSQL table.\",\n  \"identifier\": \"GET_ROW_FROM_NOSQL\",\n  \"parameters\": [\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Region string for URL.\",\n      \"defaultValue\": \"us-ashburn-1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"REGION\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Compartment id for metrics.\",\n      \"defaultValue\": \"compartmentid\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COMPARTMENT_ID\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Column name.\",\n      \"defaultValue\": \"id\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COLUMN\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Column value.\",\n      \"defaultValue\": \"1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"VALUE\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Table name.\",\n      \"defaultValue\": \"mytable\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TABLE_NAME\",\n      \"typeName\": \"STRING\"\n    }\n  ],\n  \"opConfigValues\": {\n    \"configParamValues\": {\n      \"successCondition\": {\n        \"refValue\": {\n          \"modelType\": \"EXPRESSION\",\n          \"exprString\": \"SYS.RESPONSE_STATUS >= 200 AND SYS.RESPONSE_STATUS < 300\"\n        }\n      }\n    }\n  },\n \"executeRestCallConfig\": {\n    \"modelType\": \"REST_CALL_CONFIG\",\n    \"methodType\": \"GET\",\n    \"requestHeaders\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"configValues\": {\n      \"configParamValues\": {\n        \"requestURL\": {\n          \"stringValue\": \"https://nosql.${REGION}.oci.oraclecloud.com/20190828/tables/${TABLE_NAME}/rows?compartmentId=${COMPARTMENT_ID}&key=${COLUMN}:${VALUE}\"\n        },\n        \"requestPayload\": {\n          \"refValue\": {\n            \"modelType\": \"JSON_TEXT\",\n            \"encoded\": false,\n            \"configValues\": {\n              \"configParamValues\": {\n                \"dataParam\": {\n                  \"stringValue\": \"\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"apiCallMode\": \"SYNCHRONOUS\",\n  \"authConfig\": {\n    \"modelType\": \"OCI_RESOURCE_AUTH_CONFIG\",\n    \"resourcePrincipalSource\": \"WORKSPACE\"\n  },\n  \"registryMetadata\": {\n    \"aggregatorKey\": \"{{PROJECT_KEY}}\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{WORKSPACE_OCID}}",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Row from NoSQL",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelType\": \"REST_TASK\",\n  \"name\": \"Delete Row from NoSQL\",\n  \"description\": \"Delete a row from a NoSQL table.\",\n  \"identifier\": \"DELETE_ROW_FROM_NOSQL\",\n  \"parameters\": [\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Region string for URL.\",\n      \"defaultValue\": \"us-ashburn-1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"REGION\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Compartment id for metrics.\",\n      \"defaultValue\": \"compartmentid\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COMPARTMENT_ID\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Column name.\",\n      \"defaultValue\": \"id\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COLUMN\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Column value.\",\n      \"defaultValue\": \"1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"VALUE\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Table name.\",\n      \"defaultValue\": \"mytable\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TABLE_NAME\",\n      \"typeName\": \"STRING\"\n    }\n  ],\n  \"opConfigValues\": {\n    \"configParamValues\": {\n      \"successCondition\": {\n        \"refValue\": {\n          \"modelType\": \"EXPRESSION\",\n          \"exprString\": \"SYS.RESPONSE_STATUS >= 200 AND SYS.RESPONSE_STATUS < 300\"\n        }\n      }\n    }\n  },\n  \"executeRestCallConfig\": {\n    \"modelType\": \"REST_CALL_CONFIG\",\n    \"methodType\": \"DELETE\",\n    \"requestHeaders\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"configValues\": {\n      \"configParamValues\": {\n        \"requestURL\": {\n          \"stringValue\": \"https://nosql.${REGION}.oci.oraclecloud.com/20190828/tables/${TABLE_NAME}/rows?compartmentId=${COMPARTMENT_ID}&key=${COLUMN}:${VALUE}\"\n        },\n        \"requestPayload\": {\n          \"refValue\": {\n            \"modelType\": \"JSON_TEXT\",\n            \"encoded\": false,\n            \"configValues\": {\n              \"configParamValues\": {\n                \"dataParam\": {\n                  \"stringValue\": \"\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"apiCallMode\": \"SYNCHRONOUS\",\n  \"authConfig\": {\n    \"modelType\": \"OCI_RESOURCE_AUTH_CONFIG\",\n    \"resourcePrincipalSource\": \"WORKSPACE\"\n  },\n  \"registryMetadata\": {\n    \"aggregatorKey\": \"{{PROJECT_KEY}}\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{WORKSPACE_OCID}}",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Row in NoSQL Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelType\": \"REST_TASK\",\n  \"name\": \"Update Row in NoSQL\",\n  \"description\": \"Update a row in a NoSQL table.\",\n  \"identifier\": \"UPDATE_ROW_IN_NOSQL\",\n  \"parameters\": [\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Region string for URL.\",\n      \"defaultValue\": \"us-ashburn-1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"REGION\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Compartment id for metrics.\",\n      \"defaultValue\": \"compartmentid\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COMPARTMENT_ID\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Table name.\",\n      \"defaultValue\": \"mytable\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TABLE_NAME\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/VARCHAR\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 4000\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request Payload)\"\n          }\n        }\n      },\n      \"description\": \"JSON string value\",\n      \"defaultValue\": \"{\\\"id\\\": \\\"1\\\",  \\\"data\\\": {\\\"taskName\\\": \\\"XYZ\\\"} }\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"JSON_STRING_VALUE\",\n      \"typeName\": \"VARCHAR\"\n    }\n  ],\n  \"opConfigValues\": {\n    \"configParamValues\": {\n      \"successCondition\": {\n        \"refValue\": {\n          \"modelType\": \"EXPRESSION\",\n          \"exprString\": \"SYS.RESPONSE_STATUS >= 200 AND SYS.RESPONSE_STATUS < 300\"\n        }\n      }\n    }\n  },\n  \"executeRestCallConfig\": {\n    \"modelType\": \"REST_CALL_CONFIG\",\n    \"methodType\": \"PUT\",\n    \"requestHeaders\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"configValues\": {\n      \"configParamValues\": {\n        \"requestURL\": {\n          \"stringValue\": \"https://nosql.${REGION}.oci.oraclecloud.com/20190828/tables/${TABLE_NAME}/rows\"\n        },\n        \"requestPayload\": {\n          \"refValue\": {\n            \"modelType\": \"JSON_TEXT\",\n            \"encoded\": false,\n            \"configValues\": {\n              \"configParamValues\": {\n                \"dataParam\": {\n                  \"stringValue\": \"{\\n\\t\\\"value\\\": ${JSON_STRING_VALUE},\\n  \\\"compartmentId\\\": \\\"${COMPARTMENT_ID}\\\",\\n  \\\"identityCacheSize\\\": 82616397,\\n  \\\"isExactMatch\\\": false,\\n  \\\"isGetReturnRow\\\": false,\\n  \\\"isTtlUseTableDefault\\\": true,\\n  \\\"option\\\": \\\"IF_PRESENT\\\",\\n  \\\"timeoutInMs\\\": 5000,\\n  \\\"ttl\\\": 96696908\\n}\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"apiCallMode\": \"SYNCHRONOUS\",\n  \"authConfig\": {\n    \"modelType\": \"OCI_RESOURCE_AUTH_CONFIG\",\n    \"resourcePrincipalSource\": \"WORKSPACE\"\n  },\n  \"registryMetadata\": {\n    \"aggregatorKey\": \"{{PROJECT_KEY}}\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{WORKSPACE_OCID}}",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Table in NoSQL",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelType\": \"REST_TASK\",\n  \"name\": \"Create Table in NoSQL\",\n  \"description\": \"Create a NoSQL table.\",\n  \"identifier\": \"CREATE_TABLE_IN_NOSQL\",\n  \"parameters\": [\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Region string for URL.\",\n      \"defaultValue\": \"us-ashburn-1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"REGION\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Compartment id for metrics.\",\n      \"defaultValue\": \"compartmentid\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"COMPARTMENT_ID\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"Table name.\",\n      \"defaultValue\": \"mytable\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TABLE_NAME\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/VARCHAR\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 4000\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request Payload)\"\n          }\n        }\n      },\n      \"description\": \"Table DDL\",\n      \"defaultValue\": \"CREATE TABLE mytable ( id INTEGER, body JSON, PRIMARY KEY ( id )) USING TTL 1 DAYS\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TABLE_DDL\",\n      \"typeName\": \"VARCHAR\"\n    }\n  ],\n  \"opConfigValues\": {\n    \"configParamValues\": {\n      \"successCondition\": {\n        \"refValue\": {\n          \"modelType\": \"EXPRESSION\",\n          \"exprString\": \"SYS.RESPONSE_STATUS >= 200 AND SYS.RESPONSE_STATUS < 300\"\n        }\n      }\n    }\n  },\n  \"executeRestCallConfig\": {\n    \"modelType\": \"REST_CALL_CONFIG\",\n    \"methodType\": \"POST\",\n    \"requestHeaders\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"configValues\": {\n      \"configParamValues\": {\n        \"requestURL\": {\n          \"stringValue\": \"https://nosql.${REGION}.oci.oraclecloud.com/20190828/tables/\"\n        },\n        \"requestPayload\": {\n          \"refValue\": {\n            \"modelType\": \"JSON_TEXT\",\n            \"encoded\": false,\n            \"configValues\": {\n              \"configParamValues\": {\n                \"dataParam\": {\n                  \"stringValue\": \"{\\n  \\\"name\\\": \\\"${TABLE_NAME}\\\",\\n  \\\"compartmentId\\\": \\\"${COMPARTMENT_ID}\\\",\\n  \\\"ddlStatement\\\": \\\"${TABLE_DDL}\\\",\\n  \\\"tableLimits\\\": {\\n    \\\"maxReadUnits\\\": 5,\\n    \\\"maxWriteUnits\\\": 5,\\n    \\\"maxStorageInGBs\\\": 1\\n  },\\n  \\\"freeformTags\\\": {\\n    \\\"created_using\\\": \\\"OCI DI\\\"\\n  }\\n}\"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  \"apiCallMode\": \"SYNCHRONOUS\",\n  \"authConfig\": {\n    \"modelType\": \"OCI_RESOURCE_AUTH_CONFIG\",\n    \"resourcePrincipalSource\": \"WORKSPACE\"\n  },\n  \"registryMetadata\": {\n    \"aggregatorKey\": \"{{PROJECT_KEY}}\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{WORKSPACE_OCID}}",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
