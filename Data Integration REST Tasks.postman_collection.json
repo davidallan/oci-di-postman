@@ -430,6 +430,38 @@
 					]
 				},
 				{
+					"name": "Log-Content",
+					"item": [
+						{
+							"name": "Put Custom Log Task",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelType\": \"REST_TASK\",\n  \"key\": \"4a08b3ac-7704-4716-96b4-c82c349e2911\",\n  \"identifier\": \"PUBLISHNOTIFICATIONTASK\",\n  \"name\": \"PublishNotificationTask\",\n  \"registryMetadata\": {\n    \"aggregatorKey\": \"{{PROJECT_KEY}}\"\n  },\n  \"opConfigValues\": {\n    \"configParamValues\": {\n      \"successCondition\": {\n        \"stringValue\": \"SYS.RESPONSE_STATUS >= 200 AND SYS.RESPONSE_STATUS < 300\"\n      }\n    },\n    \"parentRef\": {}\n  },\n  \"apiCallMode\": \"SYNCHRONOUS\",\n  \"authConfig\": {\n    \"modelType\": \"OCI_RESOURCE_AUTH_CONFIG\",\n    \"resourcePrincipalSource\": \"WORKSPACE\"\n  },\n  \"executeRestCallConfig\": {\n    \"modelType\": \"REST_CALL_CONFIG\",\n    \"methodType\": \"POST\",\n    \"requestHeaders\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"configValues\": {\n      \"configParamValues\": {\n        \"requestURL\": {\n          \"stringValue\": \"https://notification.${REGION}.oci.oraclecloud.com/20181201/topics/${TOPICID}/messages\"\n        },\n        \"requestPayload\": {\n          \"parameterValue\": \"cee003fb-24e7-4da2-96cd-bbcab457cf00\"\n        }\n      }\n    }\n  },\n  \"parameters\": [\n    {\n      \"modelType\": \"PARAMETER\",\n      \"key\": \"311fa272-7fb6-42e3-adfc-38d019f44c3b\",\n      \"parentRef\": {\n        \"parent\": \"4a08b3ac-7704-4716-96b4-c82c349e2911\"\n      },\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"length\": {\n            \"intValue\": 255\n          },\n          \"scale\": {\n            \"intValue\": 0\n          },\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request URL), Execute API Config: (Request URL)\"\n          }\n        }\n      },\n      \"description\": \"\",\n      \"defaultValue\": \"\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"TOPICID\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"key\": \"ef308c23-d4f1-4c28-9083-c8f93e0e4703\",\n      \"parentRef\": {\n        \"parent\": \"4a08b3ac-7704-4716-96b4-c82c349e2911\"\n      },\n      \"type\": \"Seeded:/typeSystems/PLATFORM/dataTypes/STRING\",\n      \"configValues\": {\n        \"configParamValues\": {\n          \"usedInParam\": {\n            \"stringValue\": \"Execute API Config: (Request Payload), Execute API Config: (Request URL)\"\n          }\n        },\n        \"parentRef\": {}\n      },\n      \"description\": \"Region name.\",\n      \"defaultValue\": \"us-ashburn-1\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"name\": \"REGION\",\n      \"typeName\": \"STRING\"\n    },\n    {\n      \"modelType\": \"PARAMETER\",\n      \"key\": \"cee003fb-24e7-4da2-96cd-bbcab457cf00\",\n      \"typeName\": \"com.oracle.dicom.model.dataformat.JsonText\",\n      \"name\": \"PAYLOAD_BODY\",\n      \"description\": \"\",\n      \"isInput\": true,\n      \"isOutput\": false,\n      \"rootObjectDefaultValue\": {\n        \"modelType\": \"JSON_TEXT\",\n        \"key\": \"b94bb882-2484-46d6-bc00-433d860a08f0\",\n        \"configValues\": {\n          \"configParamValues\": {\n            \"dataParam\": {\n              \"stringValue\": \"{\\\"title\\\": \\\"Put your title here\\\", \\\"body\\\": \\\"You can put email body here. Check out OCI Data Integration!\\\"}\"\n            }\n          }\n        }\n      },\n      \"type\": {\n        \"modelType\": \"JAVA_TYPE\",\n        \"javaTypeName\": \"com.oracle.dicom.model.dataformat.JsonText\"\n      }\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/{{WORKSPACE_OCID}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"{{WORKSPACE_OCID}}",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Object Storage",
 					"item": [
 						{
