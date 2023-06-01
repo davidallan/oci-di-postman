@@ -1150,7 +1150,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://dataintegration.{{region}}.oci.oraclecloud.com/20200430/workspaces\n",
+			"value": "https://dataintegration.{{region}}.oci.oraclecloud.com/20200430/workspaces",
 			"type": "string"
 		},
 		{
